@@ -9,6 +9,19 @@
     <%= link_to "Edit this restaurant", edit_restaurant_path(@restaurant) %> |
     <%= link_to "Back to restaurants", restaurants_path %>
     <p></p>
+
+    <p><strong>Reviews</strong></p>
+    <p><%= link_to "Add Review", new_restaurant_review_path(@restaurant) %></p>
+    <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %> |
+      <%= link_to "Delete", review_path(review),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+      </li>
+    <% end %>
+    </ul>
+    <br>
+
     <p></p>
 
     <%= button_to "Destroy this restaurant", @restaurant, method: :delete %>
