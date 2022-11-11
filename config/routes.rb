@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     collection do
       get :top
     end
+    member do
+      get :chef
+    end
   end
   # Defines the root path route ("/")
   # root "articles#index"

@@ -10,8 +10,8 @@ puts "Cleaning database..."
 Restaurant.destroy_all
 
 puts "Creating restaurants..."
-dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", rating: 5}
-pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", rating: 4}
+dishoom = {name: "Dishoom", address: "7 Boundary St, London E2 7JE", rating: 5, chef_name: 'Shiva'}
+pizza_east =  {name: "Pizza East", address: "56A Shoreditch High St, London E1 6PQ", rating: 4, chef_name: "Sarah"}
 
 [dishoom, pizza_east].each do |attributes|
   restaurant = Restaurant.create!(attributes)
@@ -24,7 +24,8 @@ puts 'Faker data time!'
   restaurant = Restaurant.new(
     name: Faker::Restaurant.name,
     address: Faker::Address.full_address,
-    rating: rand(1..5)
+    rating: rand(1..5),
+    chef_name: ["Gumma", "Shiva", "Allha", "Jesue"].sample
   )
   restaurant.save
 end
